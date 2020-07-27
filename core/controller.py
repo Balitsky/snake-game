@@ -58,6 +58,15 @@ class Controller:
 	def paintSnake(self):
 		for pos in self.snake.position:
 			self.display.paint(pos, self.snake.dimensions)
+		self.paintSnakeFace(self.snake.headPosition(), self.snake.dimensions)
+
+	def paintSnakeFace(self, headPos, headSize, color = (0, 0, 0)):
+		self.display.paint((headPos[0] + headSize[0]*0.2, headPos[1] + headSize[1]*0.2), 
+						  (headSize[0]*0.2, headSize[1]*0.2), color)
+		self.display.paint((headPos[0] + headSize[0]*0.6, headPos[1] + headSize[1]*0.2), 
+						  (headSize[0]*0.2, headSize[1]*0.2), color)
+		self.display.paint((headPos[0] + headSize[0]*0.3, headPos[1] + headSize[1]*0.6), 
+						  (headSize[0]*0.4, headSize[1]*0.3), color)
 
 	def paintFood(self):
 		for food in self.foods:
