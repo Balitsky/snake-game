@@ -1,5 +1,6 @@
 from core.snake import Snake
 from core.food import Food
+# from core.mouse import Mouse
 import random
 import pygame
 
@@ -7,6 +8,7 @@ class Controller:
 
 	global display
 	global snake
+	# global mouse
 
 	rects = {"snake": None, "food": None}
 	foods = []
@@ -15,6 +17,7 @@ class Controller:
 	def __init__(self, display):
 		self.display = display
 		self.snake = Snake((200, 200))
+		# self.mouse = Mouse()
 		self.generateFood()
 
 	def getDirection():
@@ -41,6 +44,9 @@ class Controller:
 		self.display.clear()
 
 		self.calculateSnakeStep(self.prevDirection)
+
+		# self.mouse.calculateMouseStep()
+		# self.mouse.paint(display)
 
 		if self.validateRects():
 			del self.foods[0]
