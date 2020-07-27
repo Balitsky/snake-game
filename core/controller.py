@@ -1,5 +1,5 @@
-from snake import Snake
-from food import Food
+from core.snake import Snake
+from core.food import Food
 import random
 import pygame
 

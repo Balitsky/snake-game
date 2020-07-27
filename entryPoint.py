@@ -1,3 +1,3 @@
-from gameCycle import GameCycle
+from core.gameCycle import GameCycle
 
 GameCycle.start()
