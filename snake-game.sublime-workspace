@@ -1,0 +1,399 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ge",
+				"generateFood"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"di",
+				"direction"
+			],
+			[
+				"s",
+				"snake"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"dire",
+				"direction"
+			],
+			[
+				"def",
+				"def\tFunction"
+			],
+			[
+				"de",
+				"direct"
+			],
+			[
+				"w",
+				"Window"
+			],
+			[
+				"Wid",
+				"Window"
+			],
+			[
+				"co",
+				"color1"
+			],
+			[
+				"in",
+				"increment"
+			],
+			[
+				"d",
+				"display"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "controller.py",
+			"settings":
+			{
+				"buffer_size": 2177,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "entryPoint.py",
+			"settings":
+			{
+				"buffer_size": 50,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"deb",
+				"Debugger: Open"
+			],
+			[
+				"de",
+				"Debugger: Open"
+			],
+			[
+				"debugg",
+				"Debugger: Start"
+			],
+			[
+				"Package Control in",
+				"Package Control: Install Package"
+			],
+			[
+				"Git: Push",
+				"Git: Push"
+			],
+			[
+				"Quick Commit (current file)",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"q",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"qu",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"add com",
+				"Git: Quick Commit (repo, only already added files)"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Set Syntax: Git Commit"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 207.0,
+		"history":
+		[
+			"n",
+			"n = 3",
+			"cd ",
+			"python ./entryPoint.py",
+			"python entryPoint.py",
+			"python entryPoint",
+			"python entryPoint.py",
+			"python"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/repositories/practice/python/snake-game",
+		"/C/repositories/practice/python/snake-game/__pycache__"
+	],
+	"file_history":
+	[
+		"/C/repositories/practice/python/snake-game/snake-game.sublime-project",
+		"/C/Users/oleksandrba/Sublime/Data/Packages/User/python-snake-game.sublime-build",
+		"/C/Users/oleksandrba/Sublime/Data/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/oleksandrba/Sublime/Data/Packages/User/python-run.sublime-build",
+		"/C/Users/oleksandrba/Sublime/Data/Packages/User/pCheck.sublime-build",
+		"/C/repositories/practice/python/entryPoint.py",
+		"/C/repositories/practice/python/controller.py",
+		"/C/repositories/practice/python/__pycache__/controller.cpython-38.pyc",
+		"/C/repositories/practice/python/gameCycle.py",
+		"/C/repositories/practice/python/widnow.py",
+		"/C/repositories/practice/python/main.py"
+	],
+	"find":
+	{
+		"height": 47.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "controller.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "entryPoint.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 50,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								50
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.Debugger":
+	{
+		"height": 169.0
+	},
+	"output.exec":
+	{
+		"height": 169.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 212.0
+	},
+	"pinned_build_system": "Packages/User/python-snake-game.sublime-build",
+	"project": "snake-game.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
