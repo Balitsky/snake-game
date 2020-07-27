@@ -12,7 +12,7 @@
 				"name" : "Default debug", 
 				"request" : "launch",
 				"type" : "python",
-				"program": "entryPoint.py"
+				"program": "C:/repositories/practice/python/snake-game/entryPoint.py"
 			}
 		]
 	}
