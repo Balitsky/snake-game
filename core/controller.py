@@ -58,6 +58,7 @@ class Controller:
 	def paintSnake(self):
 		for pos in self.snake.position:
 			self.display.paint(pos, self.snake.dimensions)
+		self.display.paint(self.snake.headPosition(), self.snake.dimensions, color = (20, 170, 20))
 		self.paintSnakeFace(self.snake.headPosition(), self.snake.dimensions)
 
 	def paintSnakeFace(self, headPos, headSize, color = (0, 0, 0)):
