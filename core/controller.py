@@ -45,7 +45,7 @@ class Controller:
 
 		self.calculateSnakeStep(self.prevDirection)
 
-		self.mouse.calculateMouseStep()
+		self.mouse.calcalculateMouseStep()
 		self.mouse.paint(display)
 
 		if self.validateRects():
