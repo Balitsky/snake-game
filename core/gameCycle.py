@@ -1,6 +1,6 @@
 import pygame
-from core.window import Window
-from core.controller import Controller
+from core.Window import Window
+from core.Controller import Controller
 
 class GameCycle:
 

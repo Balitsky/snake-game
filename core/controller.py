@@ -1,6 +1,6 @@
-from core.snake import Snake
-from core.food import Food
-from core.mouse import Mouse
+from core.Snake import Snake
+from core.Food import Food
+from core.Mouse import Mouse
 import random
 import pygame
 
