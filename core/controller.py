@@ -17,7 +17,7 @@ class Controller:
 	def __init__(self, display):
 		self.display = display
 		self.snake = Snake((200, 200))
-		self.mouse = Mouse()
+		self.mouse = Mouse(display)
 		self.generateFood()
 
 	def getDirection():
@@ -38,20 +38,19 @@ class Controller:
 		if self.validateDirection(direction):
 			self.prevDirection = direction
 
-		# if pygame.key.get_pressed()[pygame.K_SPACE]:
-		# 	self.snake.addChunk(self.prevDirection)
-
 		self.display.clear()
 
 		self.calculateSnakeStep(self.prevDirection)
 
 		self.mouse.calcalculateMouseStep()
-		self.mouse.paint(display)
+		self.mouse.paint(self.display)
 
 		if self.validateRects():
 			del self.foods[0]
 			self.generateFood()
 			self.snake.addChunk(self.prevDirection)
+
+		
 
 		self.paintSnake()
 		self.paintFood()
