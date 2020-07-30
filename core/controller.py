@@ -10,7 +10,7 @@ class Controller:
 	global snake
 	global mouse
 
-	rects = {"snake": None, "food": None}
+	rects = {"snake": None, "food": None, "mouse": None}
 	foods = []
 	prevDirection = (0, -1)
 
@@ -43,22 +43,31 @@ class Controller:
 		self.calculateSnakeStep(self.prevDirection)
 
 		self.mouse.calcalculateMouseStep()
-		self.mouse.paint(self.display)
+		
 
 		if self.validateRects():
 			del self.foods[0]
 			self.generateFood()
 			self.snake.addChunk(self.prevDirection)
 
-		
+		if self.validateMouse():
+			del self.snake
+			self.snake = Snake((200, 200))
 
 		self.paintSnake()
 		self.paintFood()
+		self.mouse.paint(self.display)
 
 	def validateRects(self):
 		self.rects["snake"] = self.display.paint(self.snake.headPosition(), self.snake.dimensions)
 		self.rects["food"] = self.display.paint(self.foods[0].pos, self.foods[0].dimensions)
 		return self.rects["snake"].colliderect(self.rects["food"])
+
+	def validateMouse(self):
+		self.rects["snake"] = self.display.paint(self.snake.headPosition(), self.snake.dimensions)
+		self.rects["mouse"] = self.display.paint(self.mouse.pos, self.mouse.dimensions)
+		return self.rects["snake"].colliderect(self.rects["mouse"])
+
 
 	def paintSnake(self):
 		for pos in self.snake.position:
