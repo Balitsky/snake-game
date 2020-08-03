@@ -6,7 +6,7 @@ from Box import Box
 class Widget:
     box: Box
     childs: []
-    background: Surface
+    background: ()
 
     def __init__(self):
         self.childs = []
@@ -20,21 +20,24 @@ class Widget:
             child.paint(display)
 
 
-    def setLayout(self, *args):
-        self.box = Box(*args)
+    def setLayout(self, *args, **kwargs):
+        self.box = Box(*args, **kwargs)
 
 
 pygame.init()
 display = pygame.display.set_mode((500, 500))
 
 widget = Widget()
-widget.setLayout(0.25, 0.25, 0.5, 0.5, (500, 500))
+widget.background = (0, 255, 0)
+widget.setLayout(0.25, 0.25, 0.5, 0.5, base = None, display = display)
 
 widget1 = Widget()
-widget1.setLayout(0.8, 0.8, 0.2, 0.2, (widget.box.w, widget.box.h))
+widget1.background = (255, 0, 0)
+widget1.setLayout(0.8, 0.8, 0.2, 0.2, widget.box)
 
 widget2 = Widget()
-widget2.setLayout(0, 0, 0.2, 0.2, (widget.box.w, widget.box.h))
+widget2.background = (0, 0, 255)
+widget2.setLayout(0, 0, 0.2, 0.2, widget1.box)
 
 widget.addChild(widget1)
 widget.addChild(widget2)

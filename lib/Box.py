@@ -20,13 +20,13 @@ class Box(Rect):
     sizeX: float
     sizeY: float
 
-    def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: Surface):
+    def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: "Box", display: Surface = None):
         self.initVariables(offsetX, offsetY, sizeX, sizeY)
-        self.__recalculate(0, 0, base.get_size()[0], base.get_size()[1])
 
-    def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: "Box"):
-        self.initVariables(offsetX, offsetY, sizeX, sizeY)
-        self.recalculate(base)
+        if display:
+            self.__recalculate(0, 0, display.get_size()[0], display.get_size()[1])
+        else:
+            self.recalculate(base)
 
     def initVariables(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float):
         self.offsetX = offsetX
