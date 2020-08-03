@@ -1,17 +1,20 @@
 import pygame
-from lib.Box import Box
+from pygame.surface import Surface
+from Box import Box
 
 
 class Widget:
     box: Box
-    childs: [] = []
-    background: ()
+    childs: []
+    background: Surface
+
+    def __init__(self):
+        self.childs = []
 
     def addChild(self, child):
         self.childs.append(child)
 
     def paint(self, display):
-        print(self.childs)
         pygame.draw.rect(display, self.background, self.box)
         for child in self.childs:
             child.paint(display)
@@ -19,18 +22,24 @@ class Widget:
 
     def setLayout(self, *args):
         self.box = Box(*args)
-        print(self.box)
 
+
+pygame.init()
+display = pygame.display.set_mode((500, 500))
 
 widget = Widget()
 widget.setLayout(0.25, 0.25, 0.5, 0.5, (500, 500))
+
 widget1 = Widget()
 widget1.setLayout(0.8, 0.8, 0.2, 0.2, (widget.box.w, widget.box.h))
-widget1.background = (255, 0, 0)
+
+widget2 = Widget()
+widget2.setLayout(0, 0, 0.2, 0.2, (widget.box.w, widget.box.h))
+
 widget.addChild(widget1)
-pygame.init()
-display = pygame.display.set_mode((500, 500))
-widget.background = (0, 255, 0)
+widget.addChild(widget2)
+
 widget.paint(display)
+
 pygame.display.update()
-pygame.time.wait(5000)
+pygame.time.wait(2000)
