@@ -12,34 +12,24 @@ w,h
 
 
 class Box(Rect):
-    posX: float
-    posY: float
+
+    # percentage from the base
+    offsetX: float
+    offsetY: float
     sizeX: float
     sizeY: float
 
-    def __init__(self, posX, posY, sizeX, sizeY, base: ()):
-        self.posX = posX
-        self.posY = posY
+    def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: "Box"):
+        self.offsetX = offsetX
+        self.offsetY = offsetY
         self.sizeX = sizeX
         self.sizeY = sizeY
-        super().__init__(self.calculateParam(base[0], base[1]))
+        super().__init__(self.calculateParam(base))
 
-    def recalculate(self, parentBox):
-        super().__init__(self.calculateParam(parentBox.w, parentBox.h))
+    def recalculate(self, base: "Box"):
+        x = round(base.x + base.w * self.offsetX)
+        y = round(base.y + base.h * self.offsetY)
+        w = round(base.w * self.sizeX)
+        h = round(base.h * self.sizeY)
 
-    def calculateParam(self, w, h):
-        x = round(w * self.posX)
-        y = round(h * self.posY)
-        w = round(w * self.sizeX)
-        h = round(h * self.sizeY)
-        return x, y, w, h
-
-
-# debug"
-"""
-box1 = Box(0.1, 0.2, 0.5, 0.5, (100, 100))
-print(box1)
-box2 = Box(0, 0, 1, 1, (200, 200))
-box1.recalculate(box2)
-print(box1)
-"""
+        super().__init__(x, y, w, h)
