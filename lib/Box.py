@@ -1,4 +1,5 @@
 from pygame.rect import Rect
+from pygame.surface import Surface
 
 """
 x,y
@@ -19,17 +20,27 @@ class Box(Rect):
     sizeX: float
     sizeY: float
 
+    def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: Surface):
+        self.initVariables(offsetX, offsetY, sizeX, sizeY)
+        self.__recalculate(0, 0, base.get_size()[0], base.get_size()[1])
+
     def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: "Box"):
+        self.initVariables(offsetX, offsetY, sizeX, sizeY)
+        self.recalculate(base)
+
+    def initVariables(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float):
         self.offsetX = offsetX
         self.offsetY = offsetY
         self.sizeX = sizeX
         self.sizeY = sizeY
-        super().__init__(self.calculateParam(base))
 
     def recalculate(self, base: "Box"):
-        x = round(base.x + base.w * self.offsetX)
-        y = round(base.y + base.h * self.offsetY)
-        w = round(base.w * self.sizeX)
-        h = round(base.h * self.sizeY)
+        self.__recalculate(base.x, base.y, base.w, base.h)
+
+    def __recalculate(self, x, y, w, h):
+        x = round(x + w * self.offsetX)
+        y = round(y + h * self.offsetY)
+        w = round(w * self.sizeX)
+        h = round(h * self.sizeY)
 
         super().__init__(x, y, w, h)
