@@ -13,21 +13,30 @@ w,h
 
 class Box(Rect):
 
+    base: Rect
+
     # percentage from the base
     offsetX: float
     offsetY: float
     sizeX: float
     sizeY: float
 
-    def __init__(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float, base: Rect):
+    def __init__(self):
+        pass
+
+    def setBase(self, base: Rect):
+        self.base = base
+
+    def setLayout(self, offsetX: float, offsetY: float, sizeX: float, sizeY: float):
         self.offsetX = offsetX
         self.offsetY = offsetY
         self.sizeX = sizeX
         self.sizeY = sizeY
 
-        self.recalculate(base)
+    def recalculate(self, base: Rect = None):
+        if not base:
+            base = self.base
 
-    def recalculate(self, base: Rect):
         x = round(base.x + base.w * self.offsetX)
         y = round(base.y + base.h * self.offsetY)
         w = round(base.w * self.sizeX)

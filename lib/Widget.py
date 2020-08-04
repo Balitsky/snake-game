@@ -10,23 +10,23 @@ class Widget:
     background: ()
 
     def __init__(self):
+        self.box = Box()
         self.childs = []
         self.parent = None
 
     def addChild(self, child):
         self.childs.append(child)
-        child.parent = self
+        child.box.setBase(self.box)
 
     def paint(self, display):
-        if self.parent:
-            self.box.recalculate(self.parent.box)
+        self.box.recalculate()
+
         pygame.draw.rect(display, self.background, self.box)
         for child in self.childs:
             child.paint(display)
 
-
     def setLayout(self, *args, **kwargs):
-        self.box = Box(*args, **kwargs)
+        self.box.setLayout(*args, **kwargs)
 
 
 
@@ -37,18 +37,30 @@ display = pygame.display.set_mode((500, 500))
 
 widget = Widget()
 widget.background = (0, 255, 0)
-widget.setLayout(0.25, 0.25, 0.5, 0.5, display.get_rect())
+widget.box.setBase(display.get_rect())
+widget.setLayout(0.25, 0.25, 0.5, 0.5)
 
 widget1 = Widget()
 widget1.background = (255, 0, 0)
-widget1.setLayout(0.8, 0.8, 0.2, 0.2, widget.box)
+widget1.setLayout(0.8, 0.8, 0.2, 0.2)
 
 widget2 = Widget()
 widget2.background = (0, 0, 255)
-widget2.setLayout(0, 0, 0.2, 0.2, widget1.box)
+widget2.setLayout(0.2, 0.2, 0.2, 0.2)
+
+widget3 = Widget()
+widget3.background = (0, 0, 255)
+widget3.setLayout(0.6, 0.2, 0.2, 0.2)
+
+widget4 = Widget()
+widget4.background = (0, 255, 255)
+widget4.setLayout(0.3, 0.6, 0.4, 0.2)
+
 
 widget.addChild(widget1)
-widget1.addChild(widget2)
+widget.addChild(widget2)
+widget.addChild(widget3)
+widget.addChild(widget4)
 
 widget.paint(display)
 
