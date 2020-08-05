@@ -1,18 +1,21 @@
 import pygame
 from pygame.surface import Surface
+from pygame.sprite import Sprite
+from pygame.sprite import Group
+from pygame.sprite import OrderedUpdates
 from Box import Box
 
 
-class Widget:
+class Widget(Sprite):
     box: Box
     childs: []
     parent: "Widget"
     background: ()
 
     def __init__(self):
+        Sprite.__init__(self)
         self.box = Box()
         self.childs = []
-        self.parent = None
 
     def addChild(self, child):
         self.childs.append(child)
@@ -28,6 +31,20 @@ class Widget:
     def setLayout(self, *args, **kwargs):
         self.box.setLayout(*args, **kwargs)
 
+    def update(self):
+        self.box.recalculate()
+        self.image = Surface((self.box.w, self.box.h))
+        self.image.fill(self.background)
+
+        self.rect = self.box
+        # print(self.rect)
+
+    def copy(self) -> "Widget":
+        widget = Widget()
+        widget.box = self.box.copy()
+        
+        widget.background = self.background
+        return widget
 
 
 
@@ -61,10 +78,16 @@ widget.addChild(widget1)
 widget.addChild(widget2)
 widget.addChild(widget3)
 widget.addChild(widget4)
+widget1.addChild(widget2.copy())
 
-widget.paint(display)
+# widget.paint(display)
 
+group = OrderedUpdates(widget, widget1, widget2, widget3, widget4)
+
+group.update()
+group.draw(display)
 pygame.display.update()
+
 pygame.time.wait(2000)
 
 clock = pygame.time.Clock()
@@ -80,8 +103,10 @@ while not gameEnd():
     clock.tick(60)
     widget1.box.offsetX += -0.005
     widget1.box.recalculate(widget.box)
-    widget.paint(display) 
-    pygame.display.update()
+
+
+    group.update()
+    pygame.display.update(group.draw(display))
 pygame.quit()
 quit()
 
