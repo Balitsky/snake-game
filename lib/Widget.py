@@ -33,16 +33,16 @@ class Widget(Sprite):
 
     def update(self):
         self.box.recalculate()
-        self.image = Surface((self.box.w, self.box.h))
-        self.image.fill(self.background)
-
         self.rect = self.box
-        # print(self.rect)
+
+        if self.background:
+            self.image = Surface((self.box.w, self.box.h))
+            self.image.fill(self.background)
 
     def copy(self) -> "Widget":
         widget = Widget()
         widget.box = self.box.copy()
-        
+
         widget.background = self.background
         return widget
 
