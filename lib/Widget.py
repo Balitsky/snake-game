@@ -10,7 +10,6 @@ class Widget(Sprite):
     box: Box
     childs: []
     parent: "Widget"
-    background: ()
 
     def __init__(self):
         Sprite.__init__(self)
@@ -31,21 +30,17 @@ class Widget(Sprite):
     def setLayout(self, *args, **kwargs):
         self.box.setLayout(*args, **kwargs)
 
+    def setBackground(self, color: () = None, image: Surface = None):
+        if color:
+            self.box.recalculate()
+            self.image = Surface((self.box.w, self.box.h))
+            self.image.fill(color)
+        elif image:
+            self.image = image
+
     def update(self):
         self.box.recalculate()
         self.rect = self.box
-
-        if self.background:
-            self.image = Surface((self.box.w, self.box.h))
-            self.image.fill(self.background)
-
-    def copy(self) -> "Widget":
-        widget = Widget()
-        widget.box = self.box.copy()
-
-        widget.background = self.background
-        return widget
-
 
 
 # widget debug
@@ -53,24 +48,19 @@ pygame.init()
 display = pygame.display.set_mode((500, 500))
 
 widget = Widget()
-widget.background = (0, 255, 0)
 widget.box.setBase(display.get_rect())
 widget.setLayout(0.25, 0.25, 0.5, 0.5)
 
 widget1 = Widget()
-widget1.background = (255, 0, 0)
 widget1.setLayout(0.8, 0.8, 0.2, 0.2)
 
 widget2 = Widget()
-widget2.background = (0, 0, 255)
 widget2.setLayout(0.2, 0.2, 0.2, 0.2)
 
 widget3 = Widget()
-widget3.background = (0, 0, 255)
 widget3.setLayout(0.6, 0.2, 0.2, 0.2)
 
 widget4 = Widget()
-widget4.background = (0, 255, 255)
 widget4.setLayout(0.3, 0.6, 0.4, 0.2)
 
 
@@ -78,15 +68,17 @@ widget.addChild(widget1)
 widget.addChild(widget2)
 widget.addChild(widget3)
 widget.addChild(widget4)
-widget1.addChild(widget2.copy())
 
-# widget.paint(display)
+widget.setBackground((0, 255, 0))
+widget1.setBackground((255, 0, 0))
+widget2.setBackground((0, 0, 255))
+widget3.setBackground((0, 0, 255))
+widget4.setBackground((0, 255, 255))
 
 group = OrderedUpdates(widget, widget1, widget2, widget3, widget4)
 
 group.update()
-group.draw(display)
-pygame.display.update()
+pygame.display.update(group.draw(display))
 
 pygame.time.wait(2000)
 
