@@ -22,7 +22,8 @@ class Box(Rect):
     sizeY: float
 
     def __init__(self):
-        pass
+        # default layout
+        self.setLayout(0, 0, 1, 1)
 
     def setBase(self, base: Rect):
         self.base = base
