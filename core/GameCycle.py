@@ -1,4 +1,5 @@
 import pygame
+from ui.MainScene import MainScene
 
 class GameCycle:
 
@@ -7,7 +8,13 @@ class GameCycle:
 
 		clock = pygame.time.Clock()
 
+		pygame.init()
+		display = pygame.display.set_mode((500, 500))
+
+		currentScene = MainScene(display)
+
 		while not GameCycle.gameEnd():
+			currentScene.render()
 			clock.tick(60)
 
 		pygame.quit()
