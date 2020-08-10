@@ -1,5 +1,5 @@
 import pygame
-from snake import Scene
+from .. import Scene
 from Widget import Widget
 
 class MainScene(Scene):
