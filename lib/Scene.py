@@ -1,11 +1,7 @@
 import pygame
 from pygame.surface import Surface
-from pygame.sprite import Sprite
-from pygame.sprite import Group
 from pygame.sprite import OrderedUpdates
-from pygame.rect import Rect
 from Widget import Widget
-from Box import Box
 
 class Scene(OrderedUpdates):
 	display: Surface
