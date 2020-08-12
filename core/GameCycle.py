@@ -1,5 +1,6 @@
 import pygame
 from core.ui.MainScene import MainScene
+from lib.Widget import Widget
 
 class GameCycle:
 
@@ -7,8 +8,6 @@ class GameCycle:
 		pygame.init()		
 
 		clock = pygame.time.Clock()
-
-		pygame.init()
 		display = pygame.display.set_mode((500, 500))
 
 		currentScene = MainScene(display)
