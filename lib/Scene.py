@@ -1,7 +1,7 @@
 import pygame
 from pygame.surface import Surface
 from pygame.sprite import OrderedUpdates
-from Widget import Widget
+from lib.Widget import Widget
 
 class Scene(OrderedUpdates):
 	display: Surface

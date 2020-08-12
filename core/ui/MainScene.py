@@ -1,6 +1,6 @@
 import pygame
-from .. import Scene
-from Widget import Widget
+from lib.Scene import Scene
+from lib.Widget import Widget
 
 class MainScene(Scene):
 

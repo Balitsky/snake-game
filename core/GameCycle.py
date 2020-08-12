@@ -1,5 +1,5 @@
 import pygame
-from ui.MainScene import MainScene
+from core.ui.MainScene import MainScene
 
 class GameCycle:
 

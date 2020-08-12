@@ -1,10 +1,8 @@
 import pygame
 from pygame.surface import Surface
 from pygame.sprite import Sprite
-from pygame.sprite import Group
-from pygame.sprite import OrderedUpdates
 from pygame.color import Color
-from Box import Box
+from lib.Box import Box
 
 
 class Widget(Sprite):
