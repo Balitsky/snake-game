@@ -37,8 +37,20 @@ class Widget(Sprite):
             if optimize:
                 self.image = self.image.convert()
         elif color:
+            self.image = Surface((1, 1))
             self.image.fill(Color(color))
         
     def update(self):
         self.box.recalculate()
         self.image = pygame.transform.scale(self.image, (self.box.w, self.box.h))
+
+    def clone(self) -> "Widget":
+        cloned = Widget()
+        cloned.image = self.image
+        cloned.box = self.box.clone()
+        cloned.rect = cloned.box
+
+        for child in self.childs:
+            cloned.addChild(child.clone())
+
+        return cloned

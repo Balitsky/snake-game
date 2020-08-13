@@ -45,3 +45,9 @@ class Box(Rect):
 
         super().__init__(x, y, w, h)
 
+    def clone(self) -> "Box":
+        cloned = Box()
+        cloned.setLayout(self.offsetX, self.offsetY, self.sizeX, self.sizeY)
+
+        return cloned
+

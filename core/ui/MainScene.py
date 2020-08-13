@@ -29,5 +29,7 @@ class MainScene(Scene):
         widget.addChild(widget2)
         widget.addChild(widget3)
         widget.addChild(widget4)
+
+        widget2.addChild(widget.clone())        
         
         self.addToScene(widget)
