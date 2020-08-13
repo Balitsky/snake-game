@@ -1,26 +1,23 @@
 import pygame
-from core.Window import Window
-from core.Controller import Controller
+from core.ui.MainScene import MainScene
+from lib.Widget import Widget
 
 class GameCycle:
 
 	def start():
 		pygame.init()		
-		window = Window(title = "Main Display")
-
-		controller = Controller(window)
 
 		clock = pygame.time.Clock()
+		display = pygame.display.set_mode((500, 500))
+
+		currentScene = MainScene(display)
 
 		while not GameCycle.gameEnd():
-
-			
-			controller.prepareNextStep()
-			window.update()
-
+			currentScene.render()
 			clock.tick(60)
 
 		pygame.quit()
+		quit()
 
 	def gameEnd():
 		for event in pygame.event.get():
