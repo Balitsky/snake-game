@@ -21,24 +21,28 @@ class Widget(Sprite):
         self.childs.append(child)
         child.box.setBase(self.box)
 
-    def paint(self, display):
-        self.box.recalculate()
-
-        pygame.draw.rect(display, self.background, self.box)
-        for child in self.childs:
-            child.paint(display)
-
     def setLayout(self, *args, **kwargs):
         self.box.setLayout(*args, **kwargs)
 
-    def setBackground(self, color: str = None, image: str = None, optimize = False):
+    def setBackground(self, color: str = None, image: str = None, optimize=False):
         if image:
             self.image = pygame.image.load(image)
             if optimize:
                 self.image = self.image.convert()
         elif color:
+            self.image = Surface((1, 1))
             self.image.fill(Color(color))
-        
+
     def update(self):
         self.box.recalculate()
         self.image = pygame.transform.scale(self.image, (self.box.w, self.box.h))
+
+
+    def clone(self) -> "Widget":
+        newWidget = Widget()
+        newWidget.image = self.image
+        newWidget.box = self.box.clone()
+        newWidget.rect = newWidget.box
+        for child in self.childs:
+            newWidget.addChild(child.clone())
+        return newWidget
