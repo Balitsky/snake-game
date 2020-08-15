@@ -1,6 +1,7 @@
 import pygame
 from core.ui.MainScene import MainScene
 from lib.Widget import Widget
+from lib.animations.Animation import Animation
 
 class GameCycle:
 

@@ -31,5 +31,18 @@ class MainScene(Scene):
         widget.addChild(widget4)
 
         widget2.addChild(widget.clone())        
+
+        m1= widget2.clone()
+        m1.box.offsetX = m1.box.offsetY = 0
+
+        m2= widget2.clone()
+        m2.box.offsetX = m2.box.offsetY = 1
+
+        widget.addChild(m2)
+        m1.setBackground("#23C946")
         
         self.addToScene(widget)
+        self.addToScene(m1)
+
+        m1.animator.move((0.5, 0.5))
+
