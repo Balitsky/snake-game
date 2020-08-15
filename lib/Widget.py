@@ -3,12 +3,14 @@ from pygame.surface import Surface
 from pygame.sprite import Sprite
 from pygame.color import Color
 from lib.Box import Box
+from lib.animations.Animator import Animator
 
 
 class Widget(Sprite):
     box: Box
     childs: []
     parent: "Widget"
+    animator: Animator
 
     def __init__(self):
         Sprite.__init__(self)
@@ -16,6 +18,7 @@ class Widget(Sprite):
         self.rect = self.box
         self.image = Surface((1, 1))
         self.childs = []
+        self.animator = Animator(self)
 
     def addChild(self, child):
         self.childs.append(child)
@@ -34,9 +37,9 @@ class Widget(Sprite):
             self.image.fill(Color(color))
 
     def update(self):
+        self.animator.update()
         self.box.recalculate()
         self.image = pygame.transform.scale(self.image, (self.box.w, self.box.h))
-
 
     def clone(self) -> "Widget":
         newWidget = Widget()
