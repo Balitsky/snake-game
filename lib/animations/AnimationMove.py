@@ -2,6 +2,7 @@ from lib.animations.Animation import Animation
 
 class AnimationMove(Animation):
 
+
     def update(self) -> bool:
         fps = 60
         leftTime = self._EndTime - Animation.current_time_millis()
@@ -19,3 +20,4 @@ class AnimationMove(Animation):
             self.Widget.box.offsetX = self.To.box.offsetX
             self.Widget.box.offsetY = self.To.box.offsetY
             return False
+
